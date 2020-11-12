@@ -9,7 +9,7 @@ namespace SnowboardCommunityProject.Models
         [Key]
         public int id {get; set;}
 
-        public int UserId {get; set;}
+        // public int UserId {get; set;}
 
         public string PostCategory {get; set;}
 

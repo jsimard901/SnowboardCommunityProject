@@ -1,6 +1,8 @@
 using System;
 using SnowboardCommunityProject.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+
 
 namespace SnowboardCommunityProject.Models
 {
