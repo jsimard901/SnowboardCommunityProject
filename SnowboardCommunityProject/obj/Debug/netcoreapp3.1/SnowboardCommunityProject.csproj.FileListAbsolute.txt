@@ -1,0 +1,8 @@
+C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardCommunityProject\obj\Debug\netcoreapp3.1\SnowboardCommunityProject.csprojAssemblyReference.cache
+C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardCommunityProject\obj\Debug\netcoreapp3.1\SnowboardCommunityProject.AssemblyInfoInputs.cache
+C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardCommunityProject\obj\Debug\netcoreapp3.1\SnowboardCommunityProject.AssemblyInfo.cs
+C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardCommunityProject\obj\Debug\netcoreapp3.1\SnowboardCommunityProject.csproj.CoreCompileInputs.cache
+C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardCommunityProject\obj\Debug\netcoreapp3.1\SnowboardCommunityProject.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardCommunityProject\obj\Debug\netcoreapp3.1\SnowboardCommunityProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardCommunityProject\obj\Debug\netcoreapp3.1\SnowboardCommunityProject.RazorAssemblyInfo.cache
+C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardCommunityProject\obj\Debug\netcoreapp3.1\SnowboardCommunityProject.RazorAssemblyInfo.cs
