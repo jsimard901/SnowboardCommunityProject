@@ -11,7 +11,7 @@ namespace SnowboardCommunityProject.Models
 
         // public int UserId {get; set;}
 
-        public string PostCategory {get; set;}
+        // public string PostCategory {get; set;}
 
         public string Post {get; set;}
 

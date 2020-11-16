@@ -42,8 +42,6 @@ namespace SnowboardCommunityProject.Controllers
                 }
         }
 
-
-
         [HttpPost]
         public IActionResult AddForumPost(ForumPost newPost)
         {
@@ -72,7 +70,7 @@ namespace SnowboardCommunityProject.Controllers
             {
                  if(ModelState.IsValid)
                 {
-                    mathingPost.PostCategory = updatePost.PostCategory;
+                    // mathingPost.PostCategory = updatePost.PostCategory;
                     mathingPost.Post = updatePost.Post;
 
                     _context.SaveChanges();
@@ -108,7 +106,6 @@ namespace SnowboardCommunityProject.Controllers
                 {
                     return Content("Matching Post Not Found!");
                 }
-
 
         }
 
