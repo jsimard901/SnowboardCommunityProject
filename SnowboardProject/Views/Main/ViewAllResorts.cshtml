@@ -1,0 +1,16 @@
+@model SnowboardProject.Data.ApplicationDbContext
+
+<title>@ViewData["Title"] All Resorts</title>
+
+<h1>All Resorts</h1>
+
+<div class="card-columns">
+
+    @foreach (Resort resort in @Model.ListOfResorts)
+    {
+        <partial name="_ResortDetials" model="@resort" />
+    }
+
+
+
+</div>

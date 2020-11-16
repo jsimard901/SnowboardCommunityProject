@@ -15633,13 +15633,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\ViewAllResorts.cshtml",
+      "TargetPath": "Views\\Main\\ViewAllResorts.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\EditForumPostForm.cshtml",
+      "TargetPath": "Views\\Main\\EditForumPostForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\_ForumPostForm.cshtml",
       "TargetPath": "Views\\Main\\_ForumPostForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\PostDetails.cshtml",
+      "TargetPath": "Views\\Main\\PostDetails.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15660,6 +15675,11 @@
     {
       "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\DeleteConf.cshtml",
       "TargetPath": "Views\\Main\\DeleteConf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\AddResortForm.cshtml",
+      "TargetPath": "Views\\Main\\AddResortForm.cshtml",
       "FileKind": "mvc"
     },
     {

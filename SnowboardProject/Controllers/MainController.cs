@@ -84,7 +84,7 @@ namespace SnowboardProject.Controllers
 
                     _context.SaveChanges();
 
-                    return View (updatePost);
+                    return View ("EditForumPostForm", updatePost);
                 }
                     else
                     {

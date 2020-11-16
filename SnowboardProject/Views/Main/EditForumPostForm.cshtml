@@ -1,0 +1,17 @@
+@model SnowboardProject.Models.ForumPost
+
+ <title>@ViewData["Title"] Edit Post Form</title>
+
+
+<h1>Edit Post @Model.id</h1>
+
+@using (@Html.BeginForm("EditPost", "Main"))
+{
+    <partial name = "_ForumPostForm" model = "@Model"/>
+    
+    <div>
+        @Html.HiddenFor(p => p.id)
+    </div>
+
+    <button type="submit" class="btn btn-success">Add Post</button>
+}
