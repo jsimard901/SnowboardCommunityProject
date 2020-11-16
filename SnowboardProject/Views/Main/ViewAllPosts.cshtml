@@ -1,0 +1,16 @@
+@model SnowboardProject.Data.ApplicationDbContext
+
+<title>@ViewData["Title"] All Forum Posts</title>
+
+<h1>All Forum Posts</h1>
+
+<div class="card-columns">
+
+    @foreach (ForumPost post in @Model.ForumPosts)
+    {
+        <partial name="_ForumPostDetails" model="@post" />
+    }
+
+
+
+</div>

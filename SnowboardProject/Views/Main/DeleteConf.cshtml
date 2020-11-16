@@ -1,0 +1,19 @@
+@model SnowboardProject.Models.ForumPost
+
+<title>@ViewData["Title"] Post Delete Confirmation</title>
+
+<div class="jumbotron">
+  <h1 class="display-4">Are you sure you want to delete this post? @Model.Post</h1>
+  <p class="lead">Once deleted, you can't go back.</p>
+  <hr class="my-4">
+
+  <p class="lead">
+    <a asp-area="" asp-controller="Main" asp-action="DeletePost" asp-route-postID = "@Model.id">
+        <button class="btn btn-danger">Delete</button>
+    </a>
+
+    <a asp-area="" asp-controller="Main" asp-action="ViewAllPosts">
+        <button class="btn btn-primary">Go Back</button>
+    </a>
+  </p>
+</div>

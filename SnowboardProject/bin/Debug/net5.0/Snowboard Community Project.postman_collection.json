@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "2e64fa92-0d33-47f5-9454-490cc953e1ce",
+		"name": "Snowboard Community Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Forum ",
+			"item": [
+				{
+					"name": "Add New Forum Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Post",
+									"value": "This is a test Post",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:5001/main/addforumpost",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"main",
+								"addforumpost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View All Forum Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/main/viewallposts",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"main",
+								"viewallposts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Post Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/main/postdetails?postID=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"main",
+								"postdetails"
+							],
+							"query": [
+								{
+									"key": "postID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Forum Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/main/editpost?id=1&Post=Updated Post",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"main",
+								"editpost"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "Post",
+									"value": "Updated Post"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Forum Post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/main/deletepost?postID=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"main",
+								"deletepost"
+							],
+							"query": [
+								{
+									"key": "postID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Resort",
+			"item": [
+				{
+					"name": "View All Resorts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/main/viewallresorts",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"main",
+								"viewallresorts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Resort",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ResortName",
+									"value": "Breckenridge",
+									"type": "text"
+								},
+								{
+									"key": "ResortLocation",
+									"value": "Breckenridge, CO",
+									"type": "text"
+								},
+								{
+									"key": "ResortElevation",
+									"value": "9600",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:5001/main/addresort",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"main",
+								"addresort"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resort Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/main/resortdetails?resortID=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"main",
+								"resortdetails"
+							],
+							"query": [
+								{
+									"key": "resortID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Resort",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/main/deleteresort?resortID=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"main",
+								"deleteresort"
+							],
+							"query": [
+								{
+									"key": "resortID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Edit Resort Info",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/main/editresort?ResortId=1&ResortName=Vail&ResortLocation=Vail, CO&ResortElevation=8150",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"main",
+						"editresort"
+					],
+					"query": [
+						{
+							"key": "ResortId",
+							"value": "1"
+						},
+						{
+							"key": "ResortName",
+							"value": "Vail"
+						},
+						{
+							"key": "ResortLocation",
+							"value": "Vail, CO"
+						},
+						{
+							"key": "ResortElevation",
+							"value": "8150"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

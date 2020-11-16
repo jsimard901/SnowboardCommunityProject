@@ -15608,6 +15608,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\ResortDetails.cshtml",
+      "TargetPath": "Views\\Main\\ResortDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -15633,6 +15638,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\_ForumPostForm.cshtml",
+      "TargetPath": "Views\\Main\\_ForumPostForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\AddForumPostForm.cshtml",
+      "TargetPath": "Views\\Main\\AddForumPostForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -15643,8 +15658,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\DeleteConf.cshtml",
+      "TargetPath": "Views\\Main\\DeleteConf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\_ForumPostDetails.cshtml",
+      "TargetPath": "Views\\Main\\_ForumPostDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\ViewAllPosts.cshtml",
+      "TargetPath": "Views\\Main\\ViewAllPosts.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\_ResortDetails.cshtml",
+      "TargetPath": "Views\\Main\\_ResortDetails.cshtml",
       "FileKind": "mvc"
     }
   ],

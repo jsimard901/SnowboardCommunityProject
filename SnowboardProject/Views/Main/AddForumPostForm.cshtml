@@ -1,0 +1,13 @@
+@model SnowboardProject.Models.ForumPost
+
+ <title>@ViewData["Title"] Add Customer Form</title>
+
+
+<h1>Add New Post</h1>
+
+@using (@Html.BeginForm("AddForumPost", "Main"))
+{
+    <partial name = "_ForumPostForm" model = "@Model"/>
+
+    <button type="submit" class="btn btn-success">Add Post</button>
+}

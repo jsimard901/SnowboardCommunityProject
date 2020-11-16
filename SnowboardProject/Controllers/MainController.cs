@@ -26,8 +26,8 @@ namespace SnowboardProject.Controllers
           // view all Post
         public IActionResult ViewAllPosts()
         {
-            // return View(_context);
-            return Content("Endpoint hit");
+            return View(_context);
+            // return Content("Endpoint hit");
         } 
 
          // view post details 
@@ -37,8 +37,8 @@ namespace SnowboardProject.Controllers
 
             if(matchingPost != null)
             {
-                // return View(matchingPost);
-                return Content("Endpoint hit");
+                return View(matchingPost);
+                // return Content("Endpoint hit");
             }
                 else
                 {
@@ -54,12 +54,17 @@ namespace SnowboardProject.Controllers
                 _context.ForumPosts.Add(newPost);
                 _context.SaveChanges();
 
-                return Content("New Post Added");
+                return RedirectToAction("ViewAllPosts");
             }
                 else
                 {
                     return Content("Error");
                 }
+        }
+
+         public IActionResult AddForumPostForm()
+        {
+            return View();
         }
 
          // Update post
@@ -79,7 +84,7 @@ namespace SnowboardProject.Controllers
 
                     _context.SaveChanges();
 
-                    return Content ("Post Updated");
+                    return View (updatePost);
                 }
                     else
                     {
@@ -94,6 +99,19 @@ namespace SnowboardProject.Controllers
             
         } 
 
+         public IActionResult EditForumPostForm(int postID)
+        {
+            ForumPost foundPost = _context.ForumPosts.FirstOrDefault(p => p.id == postID);
+            if (foundPost != null)
+            {
+                return View(foundPost);
+            }
+            else
+            {
+                return Content("No Post with that ID");
+            }
+        }
+
         // delete Post
         public IActionResult DeletePost(int postID)
         {
@@ -104,7 +122,7 @@ namespace SnowboardProject.Controllers
                 _context.Remove(matchingPost);
                 _context.SaveChanges();
 
-                return Content("Post Deleted");
+                return RedirectToAction("ViewAllPosts");
             }
                 else
                 {
@@ -169,6 +187,10 @@ namespace SnowboardProject.Controllers
                     return Content("Error");
                 }
         }
+         public IActionResult AddResortForm()
+        {
+            return View();
+        }
 
          // Update Resort
         [HttpPost]        
@@ -205,6 +227,20 @@ namespace SnowboardProject.Controllers
                 
             
         } 
+
+        public IActionResult EditResortForm(int resortID)
+        {
+            Resort foundResort = _context.ListOfResorts.FirstOrDefault(r => r.ResortId == resortID);
+            if (foundResort != null)
+            {
+                return View(foundResort);
+            }
+            else
+            {
+                return Content("No Resort with that ID");
+            }
+        }
+
 
         // delete resort
         public IActionResult DeleteResort(int resortID)
