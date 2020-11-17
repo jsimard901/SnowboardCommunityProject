@@ -84,3 +84,5 @@ C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\obj\Debu
 C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\obj\Debug\net5.0\Razor\Views\Main\EditForumPostForm.cshtml.g.cs
 C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\obj\Debug\net5.0\Razor\Views\Main\AddResortForm.cshtml.g.cs
 C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\obj\Debug\net5.0\Razor\Views\Main\ViewAllResorts.cshtml.g.cs
+C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\bin\Debug\net5.0\app.db
+C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\obj\Debug\net5.0\Razor\Views\Main\_ResortForm.cshtml.g.cs

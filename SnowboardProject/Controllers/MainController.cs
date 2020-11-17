@@ -151,8 +151,8 @@ namespace SnowboardProject.Controllers
           // view all Resorts
         public IActionResult ViewAllResorts()
         {
-            // return View(_context);
-            return Content("Endpoint hit");
+            return View(_context);
+            // return Content("Endpoint hit");
         } 
 
          // view resort details 
@@ -277,9 +277,37 @@ namespace SnowboardProject.Controllers
 
         }
 
+        public IActionResult AddFriend(int userID)
+        {
+            User matchingUser = _context.ListOfUsers.FirstOrDefault(user => user.id == userID);
+
+            if(matchingUser.Friend == true)
+            {
+                _context.ListOfUserFriends.Add(matchingUser);
+                _context.SaveChanges();
+            }
+
+            return Content("Friend Added");
+        }
+
+
+        public IActionResult SaveFavoriteResort(int resortID)
+        {
+            Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == resortID);
+
+            if(matchingResort.Favorite == true)
+            {
+                _context.ListOfUserFavoriteResorts.Add(matchingResort);
+                _context.SaveChanges();
+            }
+            
+            return Content("Resort Added to favorites");
+        }
 
 
     }
+
+
 
 }
 

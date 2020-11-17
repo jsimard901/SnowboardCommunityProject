@@ -1,0 +1,44 @@
+@model SnowboardProject.Models.Resort
+
+@* <div class="form-group">
+
+    @Html.LabelFor(r => r.ResortId)
+    @Html.TextBoxFor(r => r.ResortId, new{@class = "form-control", @readonly = "readonly"})
+    @Html.ValidationMessageFor(r => r.ResortId)
+
+</div> *@
+
+<div class="form-group">
+
+    @Html.LabelFor(r => r.ResortName)
+    @Html.TextAreaFor(r => r.ResortName, new{@class = "form-control"})
+    @Html.ValidationMessageFor(r => r.ResortName)
+
+</div>
+
+<div class="form-group">
+
+    @Html.LabelFor(r => r.ResortLocation)
+    @Html.TextAreaFor(r => r.ResortLocation, new{@class = "form-control"})
+    @Html.ValidationMessageFor(r => r.ResortLocation)
+
+</div>
+
+<div class="form-group">
+
+    @Html.LabelFor(r => r.ResortElevation)
+    @Html.TextAreaFor(r => r.ResortElevation, new{@class = "form-control"})
+    @Html.ValidationMessageFor(r => r.ResortElevation)
+
+</div>
+
+   <div class="form-group">
+        
+        @Html.LabelFor(r => r.Favorite)
+
+        @Html.CheckBoxFor(r =>r.Favorite)
+
+    </div>
+
+
+

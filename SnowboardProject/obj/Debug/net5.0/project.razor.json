@@ -15628,6 +15628,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\_ResortForm.cshtml",
+      "TargetPath": "Views\\Main\\_ResortForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
       "FileKind": "mvc"
