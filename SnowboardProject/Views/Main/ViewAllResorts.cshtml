@@ -8,7 +8,11 @@
 
     @foreach (Resort resort in @Model.ListOfResorts)
     {
+        <a asp-area="" asp-controller="Main" asp-action="ResortDetails" asp-route-resortID = "@resort.ResortId">
+
         <partial name="_ResortDetails" model="@resort" />
+
+        </a>
     }
 
 

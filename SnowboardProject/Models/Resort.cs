@@ -14,7 +14,6 @@ namespace SnowboardProject.Models
 
         public int ResortElevation {get; set;}
 
-        public bool Favorite {get; set;}
 
         
     

@@ -162,8 +162,8 @@ namespace SnowboardProject.Controllers
 
             if(matchingResort != null)
             {
-                // return View(matchingResort);
-                return Content("Endpoint hit");
+                return View(matchingResort);
+                // return Content("Endpoint hit");
             }
                 else
                 {
@@ -281,29 +281,37 @@ namespace SnowboardProject.Controllers
         {
             User matchingUser = _context.ListOfUsers.FirstOrDefault(user => user.id == userID);
 
-            if(matchingUser.Friend == true)
-            {
+           
                 _context.ListOfUserFriends.Add(matchingUser);
                 _context.SaveChanges();
-            }
+            
+
 
             return Content("Friend Added");
         }
 
 
-        public IActionResult SaveFavoriteResort(int resortID)
+        public IActionResult SaveFavoriteResort( int resortID)
         {
             Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == resortID);
 
-            if(matchingResort.Favorite == true)
-            {
+        
+
                 _context.ListOfUserFavoriteResorts.Add(matchingResort);
                 _context.SaveChanges();
-            }
+        
+            
+
+
+
             
             return Content("Resort Added to favorites");
         }
 
+    public IActionResult ViewFavoriteResorts ()
+    {
+        return View(_context);
+    }
 
     }
 

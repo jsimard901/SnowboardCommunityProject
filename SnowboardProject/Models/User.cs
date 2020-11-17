@@ -17,7 +17,6 @@ namespace SnowboardProject.Models
 
         public string UserName {get; set;}
 
-        public bool Friend {get; set;}
 
         public List<User> ListOfFriends {get; set;}
 

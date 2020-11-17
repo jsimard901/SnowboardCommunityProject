@@ -5,3 +5,19 @@
 <h1>Details for @Model.ResortName</h1>
 
 <partial name = "_ResortDetails" model = "@Model"/>
+
+<a asp-area="" asp-controller="Main" asp-action="SaveFavoriteResort" asp-route-resortID = "@Model.ResortId">
+
+    <button id="FavButton"> Add Resort To Favorites </button>
+
+        </a>
+
+
+    @* <div class="form-group">
+        
+        @Html.LabelFor(r => r.Favorite)
+<a asp-area="" asp-controller="Main" asp-action="SaveFavoriteResort" asp-route-resortID = "@Model.ResortId">
+        @Html.CheckBoxFor(r =>r.Favorite)
+</a>
+    </div> *@
+

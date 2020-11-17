@@ -1,0 +1,20 @@
+@model SnowboardProject.Data.ApplicationDbContext
+
+<title>@ViewData["Title"] Favorite Resorts</title>
+
+<h1>Favorite Resorts</h1>
+
+<div class="card-columns">
+
+    @foreach (Resort resort in @Model.ListOfResorts)
+    {
+        if(resort.Favorite == true)
+        {
+            <partial name="_ResortDetails" model="@resort" />
+        }
+    }
+
+
+
+
+</div>
