@@ -221,15 +221,48 @@ namespace SnowboardProject.Migrations
                     b.Property<string>("Post")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PostTitle")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ResortId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Userid")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("id");
 
+                    b.HasIndex("Userid");
+
                     b.ToTable("ForumPosts");
+                });
+
+            modelBuilder.Entity("SnowboardProject.Models.ForumPostReply", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("ForumPostid")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Reply")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("ForumPostid");
+
+                    b.ToTable("ForumPostReply");
                 });
 
             modelBuilder.Entity("SnowboardProject.Models.Resort", b =>
                 {
                     b.Property<int>("ResortId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Favorite")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("ResortElevation")
@@ -241,9 +274,39 @@ namespace SnowboardProject.Migrations
                     b.Property<string>("ResortName")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("Userid")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("ResortId");
 
-                    b.ToTable("ListOfResorts");
+                    b.HasIndex("Userid");
+
+                    b.ToTable("Resort");
+                });
+
+            modelBuilder.Entity("SnowboardProject.Models.User", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Friend")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserEmail")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("Userid")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Userid");
+
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -295,6 +358,48 @@ namespace SnowboardProject.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("SnowboardProject.Models.ForumPost", b =>
+                {
+                    b.HasOne("SnowboardProject.Models.User", null)
+                        .WithMany("ListOfUserPosts")
+                        .HasForeignKey("Userid");
+                });
+
+            modelBuilder.Entity("SnowboardProject.Models.ForumPostReply", b =>
+                {
+                    b.HasOne("SnowboardProject.Models.ForumPost", null)
+                        .WithMany("ListOfPostReplies")
+                        .HasForeignKey("ForumPostid");
+                });
+
+            modelBuilder.Entity("SnowboardProject.Models.Resort", b =>
+                {
+                    b.HasOne("SnowboardProject.Models.User", null)
+                        .WithMany("ListOfFavoriteResorts")
+                        .HasForeignKey("Userid");
+                });
+
+            modelBuilder.Entity("SnowboardProject.Models.User", b =>
+                {
+                    b.HasOne("SnowboardProject.Models.User", null)
+                        .WithMany("ListOfFriends")
+                        .HasForeignKey("Userid");
+                });
+
+            modelBuilder.Entity("SnowboardProject.Models.ForumPost", b =>
+                {
+                    b.Navigation("ListOfPostReplies");
+                });
+
+            modelBuilder.Entity("SnowboardProject.Models.User", b =>
+                {
+                    b.Navigation("ListOfFavoriteResorts");
+
+                    b.Navigation("ListOfFriends");
+
+                    b.Navigation("ListOfUserPosts");
                 });
 #pragma warning restore 612, 618
         }

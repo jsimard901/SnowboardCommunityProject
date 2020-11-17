@@ -72,7 +72,6 @@ C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\obj\Debu
 C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\obj\Debug\net5.0\ref\SnowboardProject.dll
 C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\obj\Debug\net5.0\SnowboardProject.pdb
 C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\obj\Debug\net5.0\SnowboardProject.genruntimeconfig.cache
-C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\bin\Debug\net5.0\app.db
 C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\bin\Debug\net5.0\Snowboard Community Project.postman_collection.json
 C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\obj\Debug\net5.0\Razor\Views\Main\ResortDetails.cshtml.g.cs
 C:\Users\student\Code_School\SnowboardCommunityProject\SnowboardProject\obj\Debug\net5.0\Razor\Views\Main\ViewAllPosts.cshtml.g.cs

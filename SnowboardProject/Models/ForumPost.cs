@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 
 namespace SnowboardProject.Models
@@ -12,8 +13,13 @@ namespace SnowboardProject.Models
         // public int UserId {get; set;}
 
         // public string PostCategory {get; set;}
+        public string PostTitle {get; set;}
 
         public string Post {get; set;}
+
+        public int ResortId {get; set;}
+
+        public List<ForumPostReply> ListOfPostReplies {get; set;}
 
 
     

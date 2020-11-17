@@ -16,7 +16,12 @@ namespace SnowboardProject.Data
 
          public DbSet<ForumPost> ForumPosts {get; set;}
          public DbSet<Resort> ListOfResorts {get; set;}
+        
+        public DbSet<Resort> ListOfUserFavoriteResorts {get; set;}
 
+         public DbSet<User> ListOfUserFriends {get;set;}
+
+         public DbSet<User> ListOfUsers {get; set;}
 
     }
 }

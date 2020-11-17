@@ -47,31 +47,25 @@ namespace SnowboardProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ForumPosts",
+                name: "User",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Post = table.Column<string>(type: "TEXT", nullable: true)
+                    UserEmail = table.Column<string>(type: "TEXT", nullable: true),
+                    UserName = table.Column<string>(type: "TEXT", nullable: true),
+                    Friend = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Userid = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ForumPosts", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ListOfResorts",
-                columns: table => new
-                {
-                    ResortId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    ResortName = table.Column<string>(type: "TEXT", nullable: true),
-                    ResortLocation = table.Column<string>(type: "TEXT", nullable: true),
-                    ResortElevation = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ListOfResorts", x => x.ResortId);
+                    table.PrimaryKey("PK_User", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_User_User_Userid",
+                        column: x => x.Userid,
+                        principalTable: "User",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -180,6 +174,71 @@ namespace SnowboardProject.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ForumPosts",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PostTitle = table.Column<string>(type: "TEXT", nullable: true),
+                    Post = table.Column<string>(type: "TEXT", nullable: true),
+                    ResortId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Userid = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ForumPosts", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_ForumPosts_User_Userid",
+                        column: x => x.Userid,
+                        principalTable: "User",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Resort",
+                columns: table => new
+                {
+                    ResortId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ResortName = table.Column<string>(type: "TEXT", nullable: true),
+                    ResortLocation = table.Column<string>(type: "TEXT", nullable: true),
+                    ResortElevation = table.Column<int>(type: "INTEGER", nullable: false),
+                    Favorite = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Userid = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Resort", x => x.ResortId);
+                    table.ForeignKey(
+                        name: "FK_Resort_User_Userid",
+                        column: x => x.Userid,
+                        principalTable: "User",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ForumPostReply",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Reply = table.Column<string>(type: "TEXT", nullable: true),
+                    ForumPostid = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ForumPostReply", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_ForumPostReply_ForumPosts_ForumPostid",
+                        column: x => x.ForumPostid,
+                        principalTable: "ForumPosts",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -216,6 +275,26 @@ namespace SnowboardProject.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ForumPostReply_ForumPostid",
+                table: "ForumPostReply",
+                column: "ForumPostid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ForumPosts_Userid",
+                table: "ForumPosts",
+                column: "Userid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Resort_Userid",
+                table: "Resort",
+                column: "Userid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_User_Userid",
+                table: "User",
+                column: "Userid");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -236,16 +315,22 @@ namespace SnowboardProject.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "ForumPosts");
+                name: "ForumPostReply");
 
             migrationBuilder.DropTable(
-                name: "ListOfResorts");
+                name: "Resort");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "ForumPosts");
+
+            migrationBuilder.DropTable(
+                name: "User");
         }
     }
 }

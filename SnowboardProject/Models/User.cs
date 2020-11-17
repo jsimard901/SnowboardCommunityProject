@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
 
-namespace SnowboardCommunityProject.Models
+namespace SnowboardProject.Models
 {
     public class User
     {
@@ -16,6 +16,8 @@ namespace SnowboardCommunityProject.Models
         public string UserEmail {get; set;}
 
         public string UserName {get; set;}
+
+        public bool Friend {get; set;}
 
         public List<User> ListOfFriends {get; set;}
 
