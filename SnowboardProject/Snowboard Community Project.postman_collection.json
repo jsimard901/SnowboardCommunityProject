@@ -257,47 +257,108 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Edit Resort Info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/main/editresort?ResortId=1&ResortName=Vail&ResortLocation=Vail, CO&ResortElevation=8150",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"main",
+								"editresort"
+							],
+							"query": [
+								{
+									"key": "ResortId",
+									"value": "1"
+								},
+								{
+									"key": "ResortName",
+									"value": "Vail"
+								},
+								{
+									"key": "ResortLocation",
+									"value": "Vail, CO"
+								},
+								{
+									"key": "ResortElevation",
+									"value": "8150"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Edit Resort Info",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:5001/main/editresort?ResortId=1&ResortName=Vail&ResortLocation=Vail, CO&ResortElevation=8150",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "5001",
-					"path": [
-						"main",
-						"editresort"
-					],
-					"query": [
-						{
-							"key": "ResortId",
-							"value": "1"
+			"name": "User",
+			"item": [
+				{
+					"name": "Add New User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "UserEmail",
+									"value": "user2@email.com",
+									"type": "text"
+								},
+								{
+									"key": "UserName",
+									"value": "User2Name",
+									"type": "text"
+								}
+							]
 						},
-						{
-							"key": "ResortName",
-							"value": "Vail"
-						},
-						{
-							"key": "ResortLocation",
-							"value": "Vail, CO"
-						},
-						{
-							"key": "ResortElevation",
-							"value": "8150"
+						"url": {
+							"raw": "https://localhost:5001/main/adduser",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"main",
+								"adduser"
+							]
 						}
-					]
+					},
+					"response": []
+				},
+				{
+					"name": "View All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/main/Viewallusers",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"main",
+								"Viewallusers"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}
