@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SnowboardProject.Data;
 using SnowboardProject.Models;
@@ -335,10 +336,10 @@ namespace SnowboardProject.Controllers
         }
 
 
-        public IActionResult SaveFavoriteResort(int resortID)
+        public IActionResult SaveFavoriteResort(Resort FavoriteResort, int resortID)
         {
             Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == resortID);
-
+            User user = _context.ListOfUsers.Include(u => u.ListOfFavoriteResorts).First(r => r.id == FavoriteResort.ResortId);
 
 
             _context.ListOfUserFavoriteResorts.Add(matchingResort);
