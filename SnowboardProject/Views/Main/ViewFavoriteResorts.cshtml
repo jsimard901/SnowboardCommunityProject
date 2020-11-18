@@ -8,10 +8,9 @@
 
     @foreach (Resort resort in @Model.ListOfResorts)
     {
-        if(resort.Favorite == true)
-        {
+    
             <partial name="_ResortDetails" model="@resort" />
-        }
+
     }
 
 

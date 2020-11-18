@@ -262,9 +262,6 @@ namespace SnowboardProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Favorite")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("ResortElevation")
                         .HasColumnType("INTEGER");
 
@@ -288,9 +285,6 @@ namespace SnowboardProject.Migrations
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("Friend")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("UserEmail")

@@ -15608,6 +15608,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\AddUserForm.cshtml",
+      "TargetPath": "Views\\Main\\AddUserForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\ResortDetails.cshtml",
       "TargetPath": "Views\\Main\\ResortDetails.cshtml",
       "FileKind": "mvc"
@@ -15650,6 +15655,16 @@
     {
       "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\ViewAllUsers.cshtml",
+      "TargetPath": "Views\\Main\\ViewAllUsers.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\_UserDetails.cshtml",
+      "TargetPath": "Views\\Main\\_UserDetails.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15705,6 +15720,11 @@
     {
       "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\ViewAllPosts.cshtml",
       "TargetPath": "Views\\Main\\ViewAllPosts.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\_UserForm.cshtml",
+      "TargetPath": "Views\\Main\\_UserForm.cshtml",
       "FileKind": "mvc"
     },
     {

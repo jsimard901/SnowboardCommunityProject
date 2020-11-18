@@ -13,93 +13,93 @@ namespace SnowboardProject.Controllers
 {
     public class MainController : Controller
     {
-         // pull in db
-        private readonly ApplicationDbContext _context; 
+        // pull in db
+        private readonly ApplicationDbContext _context;
 
         public MainController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-// ----------------------------------------------------Forum Post Methods--------------------------------------------------------------------------
+        // ----------------------------------------------------Forum Post Methods--------------------------------------------------------------------------
 
-          // view all Post
+        // view all Post
         public IActionResult ViewAllPosts()
         {
             return View(_context);
             // return Content("Endpoint hit");
-        } 
+        }
 
-         // view post details 
-        public IActionResult PostDetails (int postID)
+        // view post details 
+        public IActionResult PostDetails(int postID)
         {
             ForumPost matchingPost = _context.ForumPosts.FirstOrDefault(post => post.id == postID);
 
-            if(matchingPost != null)
+            if (matchingPost != null)
             {
                 return View(matchingPost);
                 // return Content("Endpoint hit");
             }
-                else
-                {
-                    return Content("No matching post Found!");
-                }
+            else
+            {
+                return Content("No matching post Found!");
+            }
         }
 
         [HttpPost]
         public IActionResult AddForumPost(ForumPost newPost)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _context.ForumPosts.Add(newPost);
                 _context.SaveChanges();
 
                 return RedirectToAction("ViewAllPosts");
             }
-                else
-                {
-                    return Content("Error");
-                }
+            else
+            {
+                return Content("Error");
+            }
         }
 
-         public IActionResult AddForumPostForm()
+        public IActionResult AddForumPostForm()
         {
             return View();
         }
 
-         // Update post
-        [HttpPost]        
+        // Update post
+        [HttpPost]
         public IActionResult EditPost(ForumPost updatePost)
         {
             // get book 
             ForumPost mathingPost = _context.ForumPosts.FirstOrDefault(p => p.id == updatePost.id);
 
             // if book found, update values 
-            if(mathingPost != null)
+            if (mathingPost != null)
             {
-                 if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     // mathingPost.PostCategory = updatePost.PostCategory;
                     mathingPost.Post = updatePost.Post;
 
                     _context.SaveChanges();
 
-                    return View ("EditForumPostForm", updatePost);
+                    return View("EditForumPostForm", updatePost);
                 }
-                    else
-                    {
-                        return Content("Error");
-                    }
-            }
                 else
                 {
-                    return Content("Post not found");
+                    return Content("Error");
                 }
-                
-            
-        } 
+            }
+            else
+            {
+                return Content("Post not found");
+            }
 
-         public IActionResult EditForumPostForm(int postID)
+
+        }
+
+        public IActionResult EditForumPostForm(int postID)
         {
             ForumPost foundPost = _context.ForumPosts.FirstOrDefault(p => p.id == postID);
             if (foundPost != null)
@@ -117,17 +117,17 @@ namespace SnowboardProject.Controllers
         {
             ForumPost matchingPost = _context.ForumPosts.FirstOrDefault(post => post.id == postID);
 
-            if(matchingPost != null)
+            if (matchingPost != null)
             {
                 _context.Remove(matchingPost);
                 _context.SaveChanges();
 
                 return RedirectToAction("ViewAllPosts");
             }
-                else
-                {
-                    return Content("Matching Post Not Found!");
-                }
+            else
+            {
+                return Content("Matching Post Not Found!");
+            }
 
         }
 
@@ -136,97 +136,97 @@ namespace SnowboardProject.Controllers
         {
             ForumPost matchingPost = _context.ForumPosts.FirstOrDefault(post => post.id == postID);
 
-            if(matchingPost != null)
+            if (matchingPost != null)
             {
                 return View(matchingPost);
             }
-                else
-                {
-                    return Content("Matching Post Not Found!");
-                }
+            else
+            {
+                return Content("Matching Post Not Found!");
+            }
 
         }
-// ----------------------------------------------------Resort Methods-------------------------------------------------------------------------
+        // ----------------------------------------------------Resort Methods-------------------------------------------------------------------------
 
-          // view all Resorts
+        // view all Resorts
         public IActionResult ViewAllResorts()
         {
             return View(_context);
             // return Content("Endpoint hit");
-        } 
+        }
 
-         // view resort details 
-        public IActionResult ResortDetails (int resortID)
+        // view resort details 
+        public IActionResult ResortDetails(int resortID)
         {
             Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == resortID);
 
-            if(matchingResort != null)
+            if (matchingResort != null)
             {
                 return View(matchingResort);
                 // return Content("Endpoint hit");
             }
-                else
-                {
-                    return Content("No matching resort Found!");
-                }
+            else
+            {
+                return Content("No matching resort Found!");
+            }
         }
 
         // add new resort
         [HttpPost]
         public IActionResult AddResort(Resort newResort)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _context.ListOfResorts.Add(newResort);
                 _context.SaveChanges();
 
                 return Content("New Resort Added");
             }
-                else
-                {
-                    return Content("Error");
-                }
+            else
+            {
+                return Content("Error");
+            }
         }
-         public IActionResult AddResortForm()
+        public IActionResult AddResortForm()
         {
             return View();
         }
 
-         // Update Resort
-        [HttpPost]        
+        // Update Resort
+        [HttpPost]
         public IActionResult EditResort(Resort updateResort)
         {
             // get resort 
             Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == updateResort.ResortId);
 
             // if resort found, update values 
-            if(matchingResort != null)
+            if (matchingResort != null)
             {
-                 if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     // mathingPost.PostCategory = updatePost.PostCategory;
-                    matchingResort.ResortId= updateResort.ResortId;
-                    matchingResort.ResortName= updateResort.ResortName;
-                    matchingResort.ResortLocation= updateResort.ResortLocation;
-                    matchingResort.ResortElevation= updateResort.ResortElevation;
+                    matchingResort.ResortId = updateResort.ResortId;
+                    matchingResort.ResortName = updateResort.ResortName;
+                    matchingResort.ResortLocation = updateResort.ResortLocation;
+                    matchingResort.ResortElevation = updateResort.ResortElevation;
 
 
                     _context.SaveChanges();
 
-                    return Content ("Resort Updated");
+                    return Content("Resort Updated");
                 }
-                    else
-                    {
-                        return Content("Error");
-                    }
-            }
                 else
                 {
-                    return Content("Resort not found");
+                    return Content("Error");
                 }
-                
-            
-        } 
+            }
+            else
+            {
+                return Content("Resort not found");
+            }
+
+
+        }
 
         public IActionResult EditResortForm(int resortID)
         {
@@ -247,17 +247,17 @@ namespace SnowboardProject.Controllers
         {
             Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == resortID);
 
-            if(matchingResort != null)
+            if (matchingResort != null)
             {
                 _context.Remove(matchingResort);
                 _context.SaveChanges();
 
                 return Content("Resort Deleted");
             }
-                else
-                {
-                    return Content("Matching Resort Not Found!");
-                }
+            else
+            {
+                return Content("Matching Resort Not Found!");
+            }
 
         }
 
@@ -266,52 +266,96 @@ namespace SnowboardProject.Controllers
         {
             Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == resortID);
 
-            if(matchingResort != null)
+            if (matchingResort != null)
             {
                 return View(matchingResort);
             }
-                else
-                {
-                    return Content("Matching Post Not Found!");
-                }
+            else
+            {
+                return Content("Matching Post Not Found!");
+            }
 
         }
+
+        // -------------------------------------------------- User Methods --------------------------------------------------------------------
+
+        public IActionResult ViewAllUsers()
+        {
+            return View(_context);
+        }
+
+        public IActionResult UserDetails(int userID)
+        {
+            User matchingUser = _context.ListOfUsers.FirstOrDefault(user => user.id == userID);
+
+            if (matchingUser != null)
+            {
+                return View(matchingUser);
+                // return Content("Endpoint hit");
+            }
+            else
+            {
+                return Content("No matching resort Found!");
+            }
+        }
+
+        public IActionResult AddUser(User newUser)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.ListOfUsers.Add(newUser);
+                _context.SaveChanges();
+
+                return Content("New User Added");
+            }
+            else
+            {
+                return Content("Error");
+            }
+        }
+
+         public IActionResult AddUserForm()
+        {
+            return View();
+        }
+
+        // ------------------------------------------------- Add Friends / Save Favorite Resort Methods -------------------------------------------------
 
         public IActionResult AddFriend(int userID)
         {
             User matchingUser = _context.ListOfUsers.FirstOrDefault(user => user.id == userID);
 
-           
-                _context.ListOfUserFriends.Add(matchingUser);
-                _context.SaveChanges();
-            
+
+            _context.ListOfUserFriends.Add(matchingUser);
+            _context.SaveChanges();
+
 
 
             return Content("Friend Added");
         }
 
 
-        public IActionResult SaveFavoriteResort( int resortID)
+        public IActionResult SaveFavoriteResort(int resortID)
         {
             Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == resortID);
 
-        
 
-                _context.ListOfUserFavoriteResorts.Add(matchingResort);
-                _context.SaveChanges();
-        
-            
+
+            _context.ListOfUserFavoriteResorts.Add(matchingResort);
+            _context.SaveChanges();
 
 
 
-            
+
+
+
             return Content("Resort Added to favorites");
         }
 
-    public IActionResult ViewFavoriteResorts ()
-    {
-        return View(_context);
-    }
+        public IActionResult ViewFavoriteResorts()
+        {
+            return View(_context);
+        }
 
     }
 

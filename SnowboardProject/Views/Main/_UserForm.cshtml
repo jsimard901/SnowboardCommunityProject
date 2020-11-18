@@ -1,0 +1,30 @@
+@model SnowboardProject.Models.User
+
+@* <div class="form-group">
+
+    @Html.LabelFor(u => u.id)
+    @Html.TextBoxFor(u => u.id, new{@class = "form-control", @readonly = "readonly"})
+    @Html.ValidationMessageFor(u => u.id)
+
+</div> *@
+
+<div class="form-group">
+
+    @Html.LabelFor(u => u.UserEmail)
+    @Html.TextAreaFor(u => u.UserEmail, new{@class = "form-control"})
+    @Html.ValidationMessageFor(u => u.UserEmail)
+
+</div>
+
+<div class="form-group">
+
+    @Html.LabelFor(u => u.UserName)
+    @Html.TextAreaFor(u => u.UserName, new{@class = "form-control"})
+    @Html.ValidationMessageFor(u => u.UserName)
+
+</div>
+
+
+
+
+

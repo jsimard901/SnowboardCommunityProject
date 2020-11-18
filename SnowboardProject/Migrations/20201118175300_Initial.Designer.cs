@@ -9,7 +9,7 @@ using SnowboardProject.Data;
 namespace SnowboardProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201117164719_Initial")]
+    [Migration("20201118175300_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -264,9 +264,6 @@ namespace SnowboardProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Favorite")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("ResortElevation")
                         .HasColumnType("INTEGER");
 
@@ -290,9 +287,6 @@ namespace SnowboardProject.Migrations
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("Friend")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("UserEmail")

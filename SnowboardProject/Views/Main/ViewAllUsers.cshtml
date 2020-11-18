@@ -1,0 +1,20 @@
+@model SnowboardProject.Data.ApplicationDbContext
+
+<title>@ViewData["Title"] All Users </title>
+
+<h1>All Users</h1>
+
+<div class="card-columns">
+
+    @foreach (User user in @Model.ListOfUsers)
+    {
+        @* <a asp-area="" asp-controller="Main" asp-action="ResortDetails" asp-route-resortID = "@resort.ResortId"> *@
+
+        <partial name="_UserDetails" model="@user" />
+
+        @* </a> *@
+    }
+
+
+
+</div>

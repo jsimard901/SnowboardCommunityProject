@@ -1,0 +1,13 @@
+@model SnowboardProject.Models.User
+
+ <title>@ViewData["Title"] Add User Form</title>
+
+
+<h1>Add New User</h1>
+
+@using (@Html.BeginForm("AddUser", "Main"))
+{
+    <partial name = "_UserForm" model = "@Model"/>
+
+    <button type="submit" class="btn btn-success">Add User</button>
+}

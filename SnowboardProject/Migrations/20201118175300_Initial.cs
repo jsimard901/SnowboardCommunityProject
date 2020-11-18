@@ -54,7 +54,6 @@ namespace SnowboardProject.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     UserEmail = table.Column<string>(type: "TEXT", nullable: true),
                     UserName = table.Column<string>(type: "TEXT", nullable: true),
-                    Friend = table.Column<bool>(type: "INTEGER", nullable: false),
                     Userid = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -205,7 +204,6 @@ namespace SnowboardProject.Migrations
                     ResortName = table.Column<string>(type: "TEXT", nullable: true),
                     ResortLocation = table.Column<string>(type: "TEXT", nullable: true),
                     ResortElevation = table.Column<int>(type: "INTEGER", nullable: false),
-                    Favorite = table.Column<bool>(type: "INTEGER", nullable: false),
                     Userid = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
