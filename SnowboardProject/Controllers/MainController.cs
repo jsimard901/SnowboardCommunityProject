@@ -282,6 +282,10 @@ namespace SnowboardProject.Controllers
 
         public IActionResult ViewAllUsers()
         {
+            List<User> userList = _context.ListOfUsers
+                .Include(u => u.ListOfFavoriteResorts)
+                .Include(u => u.ListOfFriends)
+                .ToList();
             return View(_context);
         }
 
@@ -315,7 +319,7 @@ namespace SnowboardProject.Controllers
             }
         }
 
-         public IActionResult AddUserForm()
+        public IActionResult AddUserForm()
         {
             return View();
         }
@@ -338,29 +342,32 @@ namespace SnowboardProject.Controllers
 
         public IActionResult SaveFavoriteResort(Resort FavoriteResort, int resortID)
         {
-            Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == resortID);
+            // Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == resortID);
             User user = _context.ListOfUsers.Include(u => u.ListOfFavoriteResorts).First(r => r.id == FavoriteResort.ResortId);
+        
+                if (ModelState.IsValid)
+                {
+                    user.ListOfFavoriteResorts.Add(FavoriteResort);
+                    // _context.ListOfUserFavoriteResorts.Add(FavoriteResort);
+                    _context.SaveChanges();
 
-
-            _context.ListOfUserFavoriteResorts.Add(matchingResort);
-            _context.SaveChanges();
-
-
-
-
-
-
-            return Content("Resort Added to favorites");
+                    return Content("Resort Added to favorites");
+                }
+                    else 
+                    {
+                        return Content("No matching user or resort");
+                    }
         }
 
-        public IActionResult ViewFavoriteResorts()
-        {
-            return View(_context);
+                
+                public IActionResult ViewFavoriteResorts()
+                {
+                    return View(_context);
+                }
+
+            }
+
+
+
         }
-
-    }
-
-
-
-}
 
