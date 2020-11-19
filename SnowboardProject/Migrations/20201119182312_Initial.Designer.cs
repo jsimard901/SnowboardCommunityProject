@@ -9,7 +9,7 @@ using SnowboardProject.Data;
 namespace SnowboardProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201118175300_Initial")]
+    [Migration("20201119182312_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

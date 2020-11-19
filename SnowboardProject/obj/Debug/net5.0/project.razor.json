@@ -15673,6 +15673,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\UserDetails.cshtml",
+      "TargetPath": "Views\\Main\\UserDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\_ForumPostForm.cshtml",
       "TargetPath": "Views\\Main\\_ForumPostForm.cshtml",
       "FileKind": "mvc"
