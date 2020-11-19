@@ -292,6 +292,9 @@ namespace SnowboardProject.Controllers
         public IActionResult UserDetails(int userID)
         {
             User matchingUser = _context.ListOfUsers.Include(u => u.ListOfFavoriteResorts).FirstOrDefault(user => user.id == userID);
+            UserViewModel viewModel = new UserViewModel();
+
+            viewModel.userInfo = matchingUser;
 
             if (matchingUser != null)
             {
@@ -328,10 +331,12 @@ namespace SnowboardProject.Controllers
 
         public IActionResult AddFriend(int userID)
         {
-            User matchingUser = _context.ListOfUsers.FirstOrDefault(user => user.id == userID);
+            User matchingUser = _context.ListOfUsers
+                .Include(u =>u.ListOfFriends)
+                .FirstOrDefault(user => user.id == userID);
 
 
-            _context.ListOfUserFriends.Add(matchingUser);
+            matchingUser.ListOfFriends.Add(matchingUser);
             _context.SaveChanges();
 
 
@@ -344,7 +349,7 @@ namespace SnowboardProject.Controllers
         {
             // Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == resortID);
             User user = _context.ListOfUsers.Include(u => u.ListOfFavoriteResorts)
-                .First(r => r.id == FavoriteResort.ResortId);
+                .FirstOrDefault(r => r.id == FavoriteResort.ResortId);
         
                 if (ModelState.IsValid)
                 {
