@@ -289,22 +289,28 @@ namespace SnowboardProject.Controllers
             return View(_context);
         }
 
-        public IActionResult UserDetails(int userID)
+        // public IActionResult UserDetails(int userID)
+        // {
+        //     User matchingUser = _context.ListOfUsers.Include(u => u.ListOfFavoriteResorts).FirstOrDefault(user => user.id == userID);
+        //     UserViewModel viewModel = new UserViewModel();
+
+        //     viewModel.userInfo = matchingUser;
+
+        //     if (matchingUser != null)
+        //     {
+        //         return View(matchingUser);
+        //         // return Content("Endpoint hit");
+        //     }
+        //     else
+        //     {
+        //         return Content("No matching resort Found!");
+        //     }
+        // }
+
+        public IActionResult UserDetails(int userID) // updated for testing
         {
             User matchingUser = _context.ListOfUsers.Include(u => u.ListOfFavoriteResorts).FirstOrDefault(user => user.id == userID);
-            UserViewModel viewModel = new UserViewModel();
-
-            viewModel.userInfo = matchingUser;
-
-            if (matchingUser != null)
-            {
-                return View(matchingUser);
-                // return Content("Endpoint hit");
-            }
-            else
-            {
-                return Content("No matching resort Found!");
-            }
+            return Content($"User {matchingUser.id}. Total Favorite Resorts {matchingUser.ListOfFavoriteResorts.Count}");
         }
 
         public IActionResult AddUser(User newUser)
@@ -345,24 +351,44 @@ namespace SnowboardProject.Controllers
         }
 
 
-        public IActionResult SaveFavoriteResort(Resort FavoriteResort, int resortID)
-        {
-            // Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == resortID);
-            User user = _context.ListOfUsers.Include(u => u.ListOfFavoriteResorts)
-                .FirstOrDefault(r => r.id == FavoriteResort.ResortId);
+        // public IActionResult SaveFavoriteResort(Resort FavoriteResort, int resortID)
+        // {
+        //     // Resort matchingResort = _context.ListOfResorts.FirstOrDefault(resort => resort.ResortId == resortID);
+        //     User user = _context.ListOfUsers.Include(u => u.ListOfFavoriteResorts)
+        //         .FirstOrDefault(r => r.id == FavoriteResort.ResortId);
         
-                if (ModelState.IsValid)
-                {
-                    user.ListOfFavoriteResorts.Add(FavoriteResort);
-                    // _context.ListOfUserFavoriteResorts.Add(FavoriteResort);
-                    _context.SaveChanges();
+        //         if (ModelState.IsValid)
+        //         {
+        //             user.ListOfFavoriteResorts.Add(FavoriteResort);
+        //             // _context.ListOfUserFavoriteResorts.Add(FavoriteResort);
+        //             _context.SaveChanges();
 
-                    return Content("Resort Added to favorites");
-                }
-                    else 
-                    {
-                        return Content("No matching user or resort");
-                    }
+        //             return Content("Resort Added to favorites");
+        //         }
+        //             else 
+        //             {
+        //                 return Content("No matching user or resort");
+        //             }
+        // }
+
+         public IActionResult SaveFavoriteResort(int resortID, int userID)
+        {
+            // find resort and user
+            Resort matchingResort = _context.ListOfResorts.FirstOrDefault(r => r.ResortId == resortID);
+            User currentUser = _context.ListOfUsers.Include(u => u.ListOfFavoriteResorts).FirstOrDefault(u => u.id == userID);
+
+            // check that resort and user are found
+            if(matchingResort != null && currentUser != null) {
+                // return Content($"User {currentUser.id} and resort {matchingResort.ResortId} found!");
+
+                // add resort to user and save changes
+                currentUser.ListOfFavoriteResorts.Add(matchingResort);
+                _context.SaveChanges();
+
+                return Content($"Resort {matchingResort.ResortId} added to user {currentUser.id}");
+            } else {
+                return Content("User and/or resort not found");
+            }
         }
 
                 
