@@ -15736,6 +15736,11 @@
       "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\_ResortDetails.cshtml",
       "TargetPath": "Views\\Main\\_ResortDetails.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\student\\Code_School\\SnowboardCommunityProject\\SnowboardProject\\Views\\Main\\_PostReplyForm.cshtml",
+      "TargetPath": "Views\\Main\\_PostReplyForm.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"

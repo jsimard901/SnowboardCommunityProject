@@ -227,6 +227,9 @@ namespace SnowboardProject.Migrations
                     b.Property<int>("ResortId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("UserIdEmail")
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("Userid")
                         .HasColumnType("INTEGER");
 

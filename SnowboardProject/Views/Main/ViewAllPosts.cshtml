@@ -4,11 +4,15 @@
 
 <h1>All Forum Posts</h1>
 
-<div class="card-columns">
+<div>
 
     @foreach (ForumPost post in @Model.ForumPosts)
     {
+        <a asp-area="" asp-controller="Main" asp-action="PostDetails" asp-route-postID = "@post.id">
+
         <partial name="_ForumPostDetails" model="@post" />
+
+        </a>
     }
 
 

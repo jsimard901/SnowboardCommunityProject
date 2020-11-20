@@ -179,6 +179,7 @@ namespace SnowboardProject.Migrations
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    UserIdEmail = table.Column<string>(type: "TEXT", nullable: true),
                     PostTitle = table.Column<string>(type: "TEXT", nullable: true),
                     Post = table.Column<string>(type: "TEXT", nullable: true),
                     ResortId = table.Column<int>(type: "INTEGER", nullable: false),

@@ -10,7 +10,7 @@ namespace SnowboardProject.Models
         [Key]
         public int id {get; set;}
 
-        // public int UserId {get; set;}
+        public string UserIdEmail {get; set;}
 
         // public string PostCategory {get; set;}
         public string PostTitle {get; set;}

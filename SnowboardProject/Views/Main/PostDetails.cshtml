@@ -4,4 +4,17 @@
 
 <h1>Details for Post @Model.id</h1>
 
-<partial name = "_ForumPostDetails" model = "@Model"/>
+<p>Title: @Model.PostTitle</p>
+<p>User: @Model.UserIdEmail</p>
+
+<p>Post: @Model.Post</p>
+
+<p>Replies: @Model.ListOfPostReplies</p>
+
+<div class="form-group">
+
+    @Html.TextAreaFor(p => p.ListOfPostReplies, new{@class = "form-control"})
+    @Html.ValidationMessageFor(p => p.ListOfPostReplies)
+    <button> Submit Comment </button>
+
+</div>

@@ -25,4 +25,12 @@
 
 </div>
 
+<div class="form-group">
+
+    @Html.LabelFor(p => p.UserIdEmail)
+    @Html.TextAreaFor(p => p.UserIdEmail, new{@class = "form-control"})
+    @Html.ValidationMessageFor(p => p.UserIdEmail)
+
+</div>
+
 

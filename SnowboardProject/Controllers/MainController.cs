@@ -147,6 +147,22 @@ namespace SnowboardProject.Controllers
             }
 
         }
+
+        public IActionResult ReplyToPost (ForumPostReply newComment, int postID)
+        {
+            ForumPost matchingPost = _context.ForumPosts.Include(u => u.ListOfPostReplies)
+                .FirstOrDefault(p => p.id == postID);
+            
+            if(matchingPost != null)
+            {
+                _context.Add(newComment);
+                _context.SaveChanges();
+
+            }
+
+                return Content("reply submitted");
+
+        }
         // ----------------------------------------------------Resort Methods-------------------------------------------------------------------------
 
         // view all Resorts
@@ -386,9 +402,11 @@ namespace SnowboardProject.Controllers
                 _context.SaveChanges();
 
                 return Content($"Resort {matchingResort.ResortId} added to user {currentUser.id}");
-            } else {
-                return Content("User and/or resort not found");
-            }
+            } 
+                else 
+                {
+                    return Content("User and/or resort not found");
+                }
         }
 
                 
