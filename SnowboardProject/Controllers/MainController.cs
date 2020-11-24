@@ -27,6 +27,10 @@ namespace SnowboardProject.Controllers
         // view all Post
         public IActionResult ViewAllPosts()
         {
+            List <ForumPost> postList = _context.ForumPosts
+                .Include(p => p.ListOfPostReplies)
+                .ToList();
+
             return View(_context);
             // return Content("Endpoint hit");
         }
@@ -34,7 +38,9 @@ namespace SnowboardProject.Controllers
         // view post details 
         public IActionResult PostDetails(int postID)
         {
-            ForumPost matchingPost = _context.ForumPosts.FirstOrDefault(post => post.id == postID);
+            ForumPost matchingPost = _context.ForumPosts
+            .Include(p => p.ListOfPostReplies)
+            .FirstOrDefault(post => post.id == postID);
 
             if (matchingPost != null)
             {
@@ -81,11 +87,14 @@ namespace SnowboardProject.Controllers
                 if (ModelState.IsValid)
                 {
                     // mathingPost.PostCategory = updatePost.PostCategory;
+                    mathingPost.PostTitle = updatePost.PostTitle;
+                    mathingPost.ListOfPostReplies = updatePost.ListOfPostReplies;
                     mathingPost.Post = updatePost.Post;
+                    mathingPost.UserIdEmail  = updatePost.UserIdEmail;
 
                     _context.SaveChanges();
 
-                    return View("EditForumPostForm", updatePost);
+                    return View("PostDetails", updatePost);
                 }
                 else
                 {
@@ -150,17 +159,22 @@ namespace SnowboardProject.Controllers
 
         public IActionResult ReplyToPost (ForumPostReply newComment, int postID)
         {
-            ForumPost matchingPost = _context.ForumPosts.Include(u => u.ListOfPostReplies)
+            ForumPost matchingPost = _context.ForumPosts.Include(p => p.ListOfPostReplies)
                 .FirstOrDefault(p => p.id == postID);
             
             if(matchingPost != null)
             {
-                _context.Add(newComment);
+                matchingPost.ListOfPostReplies.Add(newComment);
                 _context.SaveChanges();
 
-            }
+                    return Content("reply submitted");
 
-                return Content("reply submitted");
+            }
+                else
+                {
+                    return Content("error");
+                }
+
 
         }
         // ----------------------------------------------------Resort Methods-------------------------------------------------------------------------
@@ -325,8 +339,18 @@ namespace SnowboardProject.Controllers
 
         public IActionResult UserDetails(int userID) // updated for testing
         {
-            User matchingUser = _context.ListOfUsers.Include(u => u.ListOfFavoriteResorts).FirstOrDefault(user => user.id == userID);
-            return Content($"User {matchingUser.id}. Total Favorite Resorts {matchingUser.ListOfFavoriteResorts.Count}");
+            User matchingUser = _context.ListOfUsers
+            .Include(u => u.ListOfFavoriteResorts)
+            .FirstOrDefault(user => user.id == userID);
+
+            if(matchingUser !=null)
+            {
+                return View(matchingUser);
+            }
+                else
+                {
+                    return Content("No Match");
+                }
         }
 
         public IActionResult AddUser(User newUser)
@@ -387,11 +411,13 @@ namespace SnowboardProject.Controllers
         //             }
         // }
 
-         public IActionResult SaveFavoriteResort(int resortID, int userID)
+         public IActionResult SaveFavoriteResort(int resortID)
         {
             // find resort and user
             Resort matchingResort = _context.ListOfResorts.FirstOrDefault(r => r.ResortId == resortID);
-            User currentUser = _context.ListOfUsers.Include(u => u.ListOfFavoriteResorts).FirstOrDefault(u => u.id == userID);
+            User currentUser = _context.ListOfUsers
+                .Include(u => u.ListOfFavoriteResorts)
+                .FirstOrDefault(u => u.UserEmail == User.Identity.Name);
 
             // check that resort and user are found
             if(matchingResort != null && currentUser != null) {

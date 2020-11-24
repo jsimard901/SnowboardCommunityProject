@@ -9,7 +9,7 @@ using SnowboardProject.Data;
 namespace SnowboardProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201120175459_Initial")]
+    [Migration("20201120191915_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -274,6 +274,9 @@ namespace SnowboardProject.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ResortName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ResortUrl")
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("Userid")

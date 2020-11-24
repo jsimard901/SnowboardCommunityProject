@@ -274,6 +274,9 @@ namespace SnowboardProject.Migrations
                     b.Property<string>("ResortName")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ResortUrl")
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("Userid")
                         .HasColumnType("INTEGER");
 

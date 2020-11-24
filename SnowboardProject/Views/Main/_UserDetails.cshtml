@@ -7,8 +7,18 @@
 
     <p class="card-text">User Email: @Model.UserEmail</p>
     <p class="card-text">UserName: @Model.UserName</p>
-        @* <p class="card-text">Favorite Resorts: @Model.ListOfFavoriteResorts</p> *@
 
+    <ul>
+        @foreach (Resort resort in @Model.ListOfFavoriteResorts)
+        {
+            <li>
+                <p>Resort Name: @resort.ResortName</p>
+            </li>
+        }
+
+
+
+    </ul>
 
  
 

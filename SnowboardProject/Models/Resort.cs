@@ -14,6 +14,8 @@ namespace SnowboardProject.Models
 
         public int ResortElevation {get; set;}
 
+        public string ResortUrl {get; set;}
+
 
         
     

@@ -205,6 +205,7 @@ namespace SnowboardProject.Migrations
                     ResortName = table.Column<string>(type: "TEXT", nullable: true),
                     ResortLocation = table.Column<string>(type: "TEXT", nullable: true),
                     ResortElevation = table.Column<int>(type: "INTEGER", nullable: false),
+                    ResortUrl = table.Column<string>(type: "TEXT", nullable: true),
                     Userid = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
